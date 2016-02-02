@@ -19,12 +19,18 @@ public class ReceiverThread extends Thread {
     public String address;
     public boolean done = false;
 
+    public Buffer buffer;
+    public Recorder recorder;
+
     public ReceiverThread(String address){
         this.address = address;
     }
 
     @Override
     public void run() {
+        buffer = new Buffer();
+        recorder = new Recorder(buffer);
+
         System.out.println("Started");
         try {
             socketOut = new Socket(address, 1234);

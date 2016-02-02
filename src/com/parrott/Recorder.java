@@ -13,6 +13,10 @@ public class Recorder extends Thread {
     @Override
     public void run() {
 
+        while (true) {
+
+        }
+
 
     }
 }
