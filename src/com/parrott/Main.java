@@ -56,4 +56,8 @@ public class Main extends Application{
         window.show();
 
     }
+
+    private void transmit(){
+
+    }
 }
