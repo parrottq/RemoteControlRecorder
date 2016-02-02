@@ -35,6 +35,10 @@ public class Buffer {
         }
     }
 
+    public boolean hasRemaining(){
+        return buffer.hasRemaining();
+    }
+
     private void flip() {
         buffer.flip();
         isWritable = !isWritable;

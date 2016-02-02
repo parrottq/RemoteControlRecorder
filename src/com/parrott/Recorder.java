@@ -1,7 +1,5 @@
 package com.parrott;
 
-import java.nio.ByteBuffer;
-
 public class Recorder extends Thread {
 
     private Buffer buffer;
