@@ -11,22 +11,19 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
-    public static void main(String[] args) {
-	    launch(args);
-    }
-
     private Stage window;
     private Scene scene;
-
     private TextField filePath;
     private Button fileBrowser;
     private HBox fileBox;
-
     private TextField ipToTransmit;
     private Button startTransmitter;
     private HBox transmitBox;
-
     private VBox bigBox;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -53,7 +50,7 @@ public class Main extends Application{
     }
 
     private void transmit(){
-        ReceiverThread receiverThread = new ReceiverThread(ipToTransmit.getText());
+        ReceiverThread receiverThread = new ReceiverThread(ipToTransmit.getText(), filePath.getText());
         receiverThread.start();
 
     }

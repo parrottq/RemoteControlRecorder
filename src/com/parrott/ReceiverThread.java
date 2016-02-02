@@ -9,27 +9,26 @@ import java.net.Socket;
 
 public class ReceiverThread extends Thread {
 
+    public String address;
+    public String file;
+    public boolean done = false;
+    public Buffer buffer;
+    public Recorder recorder;
     private Socket socketOut;
     private DataOutputStream outputStream;
-
     private ServerSocket serverSocket;
     private Socket socketIn;
     private DataInputStream inputStream;
 
-    public String address;
-    public boolean done = false;
-
-    public Buffer buffer;
-    public Recorder recorder;
-
-    public ReceiverThread(String address){
+    public ReceiverThread(String address, String file) {
+        this.file = file;
         this.address = address;
     }
 
     @Override
     public void run() {
         buffer = new Buffer();
-        recorder = new Recorder(buffer);
+        recorder = new Recorder(buffer, file);
 
         System.out.println("Started");
         try {
