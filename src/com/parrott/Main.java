@@ -26,9 +26,6 @@ public class Main extends Application{
     private Button startTransmitter;
     private HBox transmitBox;
 
-    private Button startReceiving;
-    private HBox receiverBox;
-
     private VBox bigBox;
 
     @Override
@@ -44,10 +41,7 @@ public class Main extends Application{
         transmitBox = new HBox(ipToTransmit, startTransmitter);
         transmitBox.setSpacing(5);
 
-        startReceiving = new Button("Receive");
-        receiverBox = new HBox(startReceiving);
-
-        bigBox = new VBox(transmitBox, receiverBox, fileBox);
+        bigBox = new VBox(transmitBox, fileBox);
         bigBox.setSpacing(20);
         bigBox.setPadding(new Insets(5,10,5,10));
 
