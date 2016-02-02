@@ -1,20 +1,32 @@
 package com.parrott;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Recorder extends Thread {
 
     private Buffer buffer;
+    private String file;
 
-    public Recorder(Buffer buffer){
+    public Recorder(Buffer buffer, String file) {
         this.buffer = buffer;
+        this.file = file;
     }
 
     @Override
     public void run() {
 
-        while (true) {
+        try {
+            FileWriter fileWriter = new FileWriter(file);
 
+            while (true) {
+                if (buffer.hasRemaining()) {
+                    fileWriter.write(buffer.read());
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-
     }
 }
