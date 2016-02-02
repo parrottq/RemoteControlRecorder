@@ -38,6 +38,7 @@ public class Main extends Application{
 
         ipToTransmit = new TextField();
         startTransmitter = new Button("Transmit");
+        startTransmitter.setOnAction(e -> transmit());
         transmitBox = new HBox(ipToTransmit, startTransmitter);
         transmitBox.setSpacing(5);
 
@@ -52,6 +53,8 @@ public class Main extends Application{
     }
 
     private void transmit(){
+        ReceiverThread receiverThread = new ReceiverThread(ipToTransmit.getText());
+        receiverThread.start();
 
     }
 }
