@@ -4,9 +4,9 @@ import java.nio.ByteBuffer;
 
 public class Recorder extends Thread {
 
-    private ByteBuffer buffer;
+    private Buffer buffer;
 
-    public Recorder(ByteBuffer buffer){
+    public Recorder(Buffer buffer){
         this.buffer = buffer;
     }
 
