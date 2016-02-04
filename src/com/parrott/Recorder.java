@@ -20,10 +20,8 @@ public class Recorder extends Thread {
             FileWriter fileWriter = new FileWriter(file);
 
             while (true) {
-                if (buffer.hasRemaining()) {
-                    fileWriter.write(buffer.read());
-
-                }
+                System.out.println("Read");
+                fileWriter.write(buffer.read());
             }
         } catch (IOException e) {
             e.printStackTrace();

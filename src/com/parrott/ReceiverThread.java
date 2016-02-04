@@ -2,7 +2,6 @@ package com.parrott;
 
 
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,8 +13,8 @@ public class ReceiverThread extends Thread {
     public boolean done = false;
     public Buffer buffer;
     public Recorder recorder;
-    private Socket socketOut;
-    private DataOutputStream outputStream;
+    //private Socket socketOut;
+    //private DataOutputStream outputStream;
     private ServerSocket serverSocket;
     private Socket socketIn;
     private DataInputStream inputStream;
@@ -32,9 +31,9 @@ public class ReceiverThread extends Thread {
 
         System.out.println("Started");
         try {
-            socketOut = new Socket(address, 1234);
-            outputStream = new DataOutputStream(socketOut.getOutputStream());
-            System.out.println("Connected");
+            //socketOut = new Socket(address, 1234);
+            //outputStream = new DataOutputStream(socketOut.getOutputStream());
+            //System.out.println("Connected");
 
             serverSocket = new ServerSocket(4321);
             socketIn = serverSocket.accept();
@@ -43,8 +42,10 @@ public class ReceiverThread extends Thread {
             recorder.start();
 
             while (!done){
+                //System.out.println("TLoop");
                 int read = inputStream.read();
-                outputStream.write(read);
+                //outputStream.write(read);
+                buffer.write((byte) read);
             }
 
         } catch (IOException e) {e.printStackTrace();}
