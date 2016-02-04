@@ -5,9 +5,9 @@ import java.nio.ByteBuffer;
 
 public class Buffer {
 
+    private final Object lock = new Object();
     private ByteBuffer buffer;
     private boolean isWritable = true;
-    private Object lock = new Object();
 
     public Buffer() {
         this.buffer = ByteBuffer.allocate(1024);
