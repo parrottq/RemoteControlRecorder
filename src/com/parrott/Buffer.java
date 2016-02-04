@@ -7,7 +7,7 @@ public class Buffer {
 
     private ByteBuffer buffer;
     private boolean isWritable = true;
-    private Object lock;
+    private Object lock = new Object();
 
     public Buffer() {
         this.buffer = ByteBuffer.allocate(1024);
