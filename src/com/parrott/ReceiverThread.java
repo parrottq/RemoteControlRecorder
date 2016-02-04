@@ -40,6 +40,7 @@ public class ReceiverThread extends Thread {
             socketIn = serverSocket.accept();
             inputStream = new DataInputStream(socketIn.getInputStream());
             System.out.println("Receiving");
+            recorder.start();
 
             while (!done){
                 int read = inputStream.read();
